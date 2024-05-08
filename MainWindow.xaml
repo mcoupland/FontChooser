@@ -1,0 +1,67 @@
+﻿<Window x:Class="Font_Chooser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Font_Chooser"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Border Padding="25, 5, 25,5">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Enter Sample Text" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <TextBox x:Name="uiSample" Grid.Row="0" Grid.Column="1" Margin="0, 15" />
+            <Button x:Name="uiUpdateText" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Update Sample Text" Click="uiUpdateText_Click"/>
+            
+            <WrapPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="8,0">
+                <Button  x:Name="uiDecrease" Content="-" Click="uiDecrease_Click" HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+                <Label x:Name="uiFontSize" Content="32" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+                <Button  x:Name="uiIncrease" Content="+" Click="uiIncrease_Click" HorizontalAlignment="Right" HorizontalContentAlignment="Center"/>
+                <Button x:Name="uiSans" Content="Sans-Serif" Click="uiSans_Click"  HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+                <Button x:Name="uiSerif" Content="Serif" Click="uiSerif_Click"  HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+                <Button x:Name="uiSymbol" Content="Symbol" Click="uiSymbol_Click"  HorizontalAlignment="Left" HorizontalContentAlignment="Center"/>
+            </WrapPanel>
+        
+            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">                    
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <CheckBox Grid.Row="0" Grid.Column="0" x:Name="uiSelectAll" Content="Select All" Click="uiSelectAll_Click"/>                    
+                    <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="2" BorderBrush="Black" BorderThickness="0.5">
+                        <ScrollViewer CanContentScroll="True"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalScrollBarVisibility="Auto"
+                                    HorizontalScrollBarVisibility="Auto">
+                            <StackPanel x:Name="uiFontList" />
+                        </ScrollViewer>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3" Margin="2" BorderBrush="Black" BorderThickness="0.5">
+                        <ScrollViewer CanContentScroll="True"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalScrollBarVisibility="Auto"
+                                    HorizontalScrollBarVisibility="Auto">
+                            <StackPanel x:Name="uiSelectedFontList" />
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
